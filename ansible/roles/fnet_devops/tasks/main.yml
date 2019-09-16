@@ -1,0 +1,10 @@
+- name: "Add DevOps Group"
+  group: 
+    name: devops
+    state: present
+
+- name: "Add fnet_devops User"
+  user: 
+    name: fnet_devops
+    group: devops
+    shell: /bin/bash

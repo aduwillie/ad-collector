@@ -1,0 +1,10 @@
+- name: "Add Developer Group"
+  group: 
+    name: developer
+    state: present
+
+- name: "Add fnet_developer User"
+  user: 
+    name: fnet_developer
+    group: developer
+    shell: /bin/bash
