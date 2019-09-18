@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src --fix",
-    "dev": "./node_modules/.bin/nodemon --exec babel-node ./src/index.js",
+    "dev": "./node_modules/.bin/nodemon --exec babel-node ./src/index.js & webpack --watch --mode development",
     "start": "",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production"
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,15 @@
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
     "eslint": "^6.4.0",
     "nodemon": "^1.19.2",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
   }
 }
