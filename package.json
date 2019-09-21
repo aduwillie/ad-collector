@@ -1,0 +1,49 @@
+{
+  "name": "ad-collector",
+  "version": "1.0.0",
+  "description": "This is a data collection system for gathering and analysing all kinds of data.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src --fix",
+    "dev": "./node_modules/.bin/nodemon --exec babel-node ./src/index.js & webpack --watch --mode development",
+    "start": "",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aduwillie/ad-collector.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aduwillie/ad-collector/issues"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "homepage": "https://github.com/aduwillie/ad-collector#readme",
+  "dependencies": {
+    "@hapi/hapi": "^18.4.0",
+    "@hapi/inert": "^5.2.2",
+    "@hapi/vision": "^5.5.4",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.4.0",
+    "nodemon": "^1.19.2",
+    "pre-commit": "^1.2.2",
+    "pug-loader": "^2.4.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
