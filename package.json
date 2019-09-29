@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src --fix",
-    "dev": "./node_modules/.bin/nodemon --exec babel-node ./src/index.js & webpack --watch --mode development",
-    "start": "",
+    "logs:deployer": "docker-compose logs -f deployer",
+    "logs:webui": "docker-compose logs -f webui",
+    "start": "docker-compose up -d webui",
+    "start:deployer": "./node_modules/.bin/babel-node ./deployer/index.js",
+    "start:deployer:dev": "./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js'",
+    "start:webui": "./node_modules/.bin/babel-node index.js",
+    "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production"
   },
@@ -25,9 +30,14 @@
   ],
   "homepage": "https://github.com/aduwillie/ad-collector#readme",
   "dependencies": {
+    "@hapi/boom": "^7.4.9",
     "@hapi/hapi": "^18.4.0",
     "@hapi/inert": "^5.2.2",
+    "@hapi/joi": "^16.1.4",
     "@hapi/vision": "^5.5.4",
+    "dotenv": "^8.1.0",
+    "hapi-alive": "^2.0.4",
+    "hapi-pino": "^6.1.0",
     "pug": "^2.0.4"
   },
   "devDependencies": {

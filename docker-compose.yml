@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  webui:
+    build:
+      context: .
+      dockerfile: src/webui/Dockerfile
+    entrypoint: npm run start:webui:dev
+    ports:
+      - "5000:80"
+    volumes:
+      - './src/webui/plugins:/usr/src/app/plugins'
+      - './src/webui/public:/usr/src/app/public'
+      - './src/webui/lib:/usr/src/app/lib'
+      - './src/webui/index.js:/usr/src/app/index.js'
+      - './src/webui/server.js:/usr/src/app/server.js'
+    networks:
+      - colnet
+networks:
+  colnet:
