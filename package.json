@@ -12,7 +12,8 @@
     "start:deployer:dev": "./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js'",
     "start:webui": "./node_modules/.bin/babel-node index.js",
     "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js'",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run test:webui",
+    "test:webui": "./node_modules/.bin/jest ./src/webui",
     "build": "webpack --mode=production"
   },
   "repository": {
@@ -29,6 +30,11 @@
     "lint"
   ],
   "homepage": "https://github.com/aduwillie/ad-collector#readme",
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/jest.init.js"
+    ]
+  },
   "dependencies": {
     "@hapi/boom": "^7.4.9",
     "@hapi/hapi": "^18.4.0",
@@ -42,15 +48,20 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.2",
     "@babel/node": "^7.6.1",
-    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-env": "^7.6.2",
+    "babel": "^6.23.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.4.0",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.2",
     "pre-commit": "^1.2.2",
     "pug-loader": "^2.4.0",
+    "regenerator-runtime": "^0.13.3",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.40.2",
