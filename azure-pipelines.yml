@@ -21,14 +21,15 @@ steps:
 - script: |
     npm install
     npm test
-    echo "Building Docker Image"
+  displayName: 'Install and Test'
+
+- script: |
     docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):$(Build.BuildId) $(Build.SourcesDirectory)
     docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):latest $(Build.SourcesDirectory)
     docker login -u $(dockerId) -p $(dockerPassword)
-    echo "Pushing Image to Docker Hub"
     docker push $(dockerId)/$(imageName):$(Build.BuildId)
     docker push $(dockerId)/$(imageName):latest
-  displayName: 'Test, Build and Push Docker Image'
+  displayName: 'Build and Push Docker Image'
 
 - publish: $(System.DefaultWorkingDirectory)/docker
   artifact: AdCollector
