@@ -51,7 +51,7 @@
     "@babel/core": "^7.6.2",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.2",
-    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
