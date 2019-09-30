@@ -1,6 +1,0 @@
-- name: "Add sshuser User"
-  user: 
-    name: sshuser
-    group: sudo
-    state: present
-    shell: /bin/bash

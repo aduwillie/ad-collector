@@ -1,8 +1,0 @@
-- name: "Setup Github Repository"
-  hosts: git_bucket
-  tasks:
-    - name: "Clone Github Repository"
-      shell: |
-        cd /repos
-        git clone https://github.com/aduwillie/ad-collector.git
-        cd ad-collector

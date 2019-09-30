@@ -1,4 +1,0 @@
-- hosts: all
-  become: true  # execute it with the root command
-  roles:
-    - docker
