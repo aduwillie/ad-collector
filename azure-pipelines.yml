@@ -21,8 +21,6 @@ steps:
 - script: |
     npm install
     npm test
-    echo "List all files"
-    ls -al
     echo "Building Docker Image"
     docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName) $(Build.SourcesDirectory)
     docker login -u $(dockerId) -p $(dockerPassword)
