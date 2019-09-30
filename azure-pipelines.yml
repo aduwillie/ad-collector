@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'ad-collector-webui'
+  imageName: 'ad-collector-webui:$(Build.BuildId)'
 
 steps:
 - task: NodeTool@0
@@ -21,21 +21,6 @@ steps:
 - script: |
     npm install
     npm test
+    docker build -f src/webui/Dockerfile -t $(dockerId)/$(imageName) .
+    docker login -u $(dockerId) -p $(dockerPassword)
   displayName: 'npm install and test'
-
-- task: Docker@2
-  displayName: Build WebUI image
-  inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: src/webui/Dockerfile
-
-# - task: Docker@2
-#   displayName: Push WebUI image
-#   inputs:
-#     containerRegistry: |
-#       $(DockerHub)
-#     repository: $(imageName)
-#     command: push
-#     tags: |
-#       latest
