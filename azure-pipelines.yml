@@ -23,4 +23,5 @@ steps:
     npm test
     docker build -f src/webui/Dockerfile -t $(dockerId)/$(imageName) .
     docker login -u $(dockerId) -p $(dockerPassword)
-  displayName: 'npm install and test'
+    docker push $(dockerId)/$(imageName)
+  displayName: 'Test and Push Docker Image'
