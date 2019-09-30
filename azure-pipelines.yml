@@ -24,7 +24,7 @@ steps:
     echo "List all files"
     ls -al
     echo "Building Docker Image"
-    docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName) $(Build.SourcesDirectory)
+    docker build -f ./src/webUI/Dockerfile -t $(dockerId)/$(imageName) $(Build.SourcesDirectory)
     docker login -u $(dockerId) -p $(dockerPassword)
     "Pushing Image to Docker Hub"
     docker push $(dockerId)/$(imageName)
