@@ -32,7 +32,7 @@ steps:
   displayName: 'Build and Push Docker Image'
 
 - publish: $(System.DefaultWorkingDirectory)/docker
-  artifact: AdCollectorDocker
+  artifact: docker
 
 - publish: $(System.DefaultWorkingDirectory)/caddy
-  artifact: AdCollectorCaddy
+  artifact: caddy
