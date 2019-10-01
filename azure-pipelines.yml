@@ -24,9 +24,11 @@ steps:
   displayName: 'Install and Test'
 
 - script: |
+    docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):$(Build.BuildId) $(Build.SourcesDirectory)
     docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):latest $(Build.SourcesDirectory)
     docker login -u $(dockerId) -p $(dockerPassword)
     docker push $(dockerId)/$(imageName):latest
+    docker push $(dockerId)/$(imageName):$(Build.BuildId)
   displayName: 'Build and Push Docker Image'
 
 - publish: $(System.DefaultWorkingDirectory)/docker

@@ -8,10 +8,8 @@
     "logs:deployer": "docker-compose logs -f deployer",
     "logs:webui": "docker-compose logs -f webui",
     "start": "docker-compose up -d webui",
-    "start:deployer": "./node_modules/.bin/babel-node ./deployer/index.js",
-    "start:deployer:dev": "./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js'",
-    "start:webui": "./node_modules/.bin/babel-node index.js",
-    "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js'",
+    "start:webui": "./node_modules/.bin/babel-node src/webui/index.js",
+    "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'npm run start:webui'",
     "test": "npm run test:webui",
     "test:webui": "./node_modules/.bin/jest ./src/webui",
     "build": "webpack --mode=production"
@@ -36,6 +34,7 @@
     ]
   },
   "dependencies": {
+    "@babel/polyfill": "^7.6.0",
     "@hapi/boom": "^7.4.9",
     "@hapi/hapi": "^18.4.0",
     "@hapi/inert": "^5.2.2",
@@ -47,14 +46,10 @@
     "pug": "^2.0.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.0",
+    "@babel/cli": "^7.6.2",
     "@babel/core": "^7.6.2",
-    "@babel/node": "^7.6.1",
+    "@babel/node": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^24.9.0",
-    "babel-loader": "^8.0.6",
-    "babel-polyfill": "^6.26.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.4.0",
     "jest": "^24.9.0",

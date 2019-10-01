@@ -5,4 +5,4 @@ RUN npm i
 COPY src/webui/ ./
 EXPOSE 80
 ENV PORT=80
-ENTRYPOINT npm run start:webui
+ENTRYPOINT ./node_modules/.bin/babel-node index.js

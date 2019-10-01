@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: src/webui/Dockerfile
-    entrypoint: npm run start:webui:dev
+    entrypoint: ./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js' 
     ports:
       - "5000:80"
     volumes:
