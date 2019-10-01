@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   webui:
-    image: ad-collector-webui:latest
+    image: aduwillie/ad-collector-webui:latest
     deploy:
       replicas: 1
       restart_policy:
