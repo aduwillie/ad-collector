@@ -10,7 +10,7 @@ services:
     networks:
       - colnet
   webui:
-    image: aduwillie/ad-collector:latest
+    image: aduwillie/ad-collector-webui:latest
     deploy:
       replicas: 1
       restart_policy:
