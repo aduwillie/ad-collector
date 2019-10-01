@@ -6,7 +6,7 @@ services:
       - '80:80'
       - '443:443'
     volumes:
-      - './caddy:/etc/caddy/'
+      - '/projects/ad-collector/caddy:/etc/caddy/'
     networks:
       - colnet
   webui:
