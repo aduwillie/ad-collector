@@ -7,7 +7,7 @@ services:
       labels:
         - traefik.frontend.rule=Host:ad-collector.${DOMAIN?Variable DOMAIN not set}
         - traefik.enable=true
-        - traefik.port=5000
+        - traefik.port=80
         - traefik.tags=traefik-public
         - traefik.docker.network=traefik-public
         # Traefik service that listens to HTTP
