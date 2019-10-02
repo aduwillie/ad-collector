@@ -1,21 +1,27 @@
 version: '3.7'
 services:
-  caddy:
-    image: stefanprodan/caddy
-    ports:
-      - '80:80'
-      - '443:443'
-    volumes:
-      - '/projects/ad-collector/caddy:/etc/caddy/'
-    networks:
-      - colnet
   webui:
     image: aduwillie/ad-collector-webui:latest
     deploy:
-      replicas: 1
+      replicas: ${WEBUI_REPLICAS:-1}
+      labels:
+        - traefik.frontend.rule=Host:ad-collector.${DOMAIN?Variable DOMAIN not set}
+        - traefik.enable=true
+        - traefik.port=5000
+        - traefik.tags=traefik-public
+        - traefik.docker.network=traefik-public
+        # Traefik service that listens to HTTP
+        - traefik.redirectorservice.frontend.entryPoints=http
+        - traefik.redirectorservice.frontend.redirect.entryPoint=https
+        # Traefik service that listens to HTTPS
+        - traefik.webservice.frontend.entryPoints=https
       restart_policy:
         condition: on-failure
     networks:
       - colnet
+      - traefik-public
 networks:
   colnet:
+    attachable: true
+  traefik-public:
+    external: true

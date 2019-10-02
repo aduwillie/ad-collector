@@ -3,6 +3,15 @@
     proxy / webui:80 {
         transparent
     }
+
+    proxy /mongo mongo:27017 {
+        transparent
+    }
+
+    proxy /mongo-ui:8081 {
+        transparent
+    }
+
     log stdout
     errors stderr
     tls off # until we acquire certs

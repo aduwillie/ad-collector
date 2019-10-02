@@ -1,22 +1,12 @@
 version: '3.7'
 services:
-  caddy:
-    image: stefanprodan/caddy
-    container_name: caddy
-    ports:
-      - '5000:80'
-      # - '443:443'
-    volumes:
-      - './caddy:/etc/caddy/'
-    networks:
-      - colnet
   webui:
     build:
       context: .
       dockerfile: src/webui/Dockerfile
     entrypoint: ./node_modules/.bin/nodemon --mode development --exec 'babel-node index.js' 
-    # ports:
-    #   - "5000:80"
+    ports:
+      - '5000:80'
     volumes:
       - './src/webui/plugins:/usr/src/app/plugins'
       - './src/webui/public:/usr/src/app/public'
