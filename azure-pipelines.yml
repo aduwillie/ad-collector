@@ -33,6 +33,3 @@ steps:
 
 - publish: $(System.DefaultWorkingDirectory)/docker
   artifact: docker
-
-- publish: $(System.DefaultWorkingDirectory)/caddy
-  artifact: caddy
