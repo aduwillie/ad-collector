@@ -1,10 +1,9 @@
 import Vision from '@hapi/vision';
 import Pug from 'pug';
 
-import HomeRoute from './routes/home';
-import CatchAllRoute from './routes/catchall';
-
+import Routes from './routes';
 import Services from './services';
+import Strategies from './strategies';
 
 const RoutesPlugin = {
     name: 'routes',
@@ -21,15 +20,18 @@ const RoutesPlugin = {
         });
 
         // register services
-        Services.forEach(service => {
+        Services.forEach((service) => {
             server.registerService(service);
         });
 
+        // register strategies
+        Strategies.forEach((strategy) => {
+            server.auth.strategy(...strategy);
+        });
+        server.auth.default('session');
+
         // register routes
-        server.route([
-            HomeRoute,
-            CatchAllRoute, // should be the last in this list
-        ]);
+        server.route([...Routes]);
     },
 };
 

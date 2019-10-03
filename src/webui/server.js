@@ -4,6 +4,7 @@ import Inert from '@hapi/inert';
 import Cookie from '@hapi/cookie';
 import Pino from 'hapi-pino';
 import Schmervice from 'schmervice';
+import JWTScheme from 'hapi-auth-jwt2';
 
 import HealthCheck from './plugins/health-check';
 
@@ -29,6 +30,7 @@ const init = async (start) => {
             },
         },
         Cookie,
+        JWTScheme,
         Schmervice,
         HealthCheck,
         Routes,

@@ -42,10 +42,11 @@
     "@hapi/joi": "^16.1.4",
     "@hapi/vision": "^5.5.4",
     "bcrypt": "^3.0.6",
-    "bluebird": "^3.7.0",
     "dotenv": "^8.1.0",
     "hapi-alive": "^2.0.4",
+    "hapi-auth-jwt2": "^8.6.2",
     "hapi-pino": "^6.1.0",
+    "jsonwebtoken": "^8.5.1",
     "pug": "^2.0.4",
     "schmervice": "^1.2.0"
   },

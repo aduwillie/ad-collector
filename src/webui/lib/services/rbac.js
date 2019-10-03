@@ -1,5 +1,4 @@
 import Schmervice from 'schmervice';
-import Promise from 'bluebird';
 
 import Roles from '../configs/roles';
 
@@ -27,18 +26,23 @@ class RbacService extends Schmervice.Service {
 
     async can(role, operation, params) {
         const foundRole = this.roles[role];
-        if (!foundRole) return Promise.resolve(false);
+        if (!foundRole) return false;
 
         // case when operation is not inherited
         const foundOperation = foundRole.can[operation];
         if (foundOperation) {
-            if (typeof foundOperation === 'string') return Promise.resolve(true);
-            return Promise.resolve(foundOperation(params));
+            if (typeof foundOperation === 'string') return true;
+            return foundOperation(params);
         }
 
         // case when operation is inherited
         if (!foundRole.inherits || !foundRole.inherits.length) return false;
-        return Promise.any(Promise.map(foundRole.inherits, childRole => this.can(childRole, operation, params)));
+        for (let i = 0; i < foundRole.inherits.length; i++) {
+            const childRole = foundRole.inherits[i];
+            const canRunOperation = await this.can(childRole, operation, params);
+            if (canRunOperation) return true;
+        }
+        return false;
     }
 }
 
