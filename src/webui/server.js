@@ -1,7 +1,9 @@
 import Path from 'path';
 import Hapi from '@hapi/hapi';
 import Inert from '@hapi/inert';
+import Cookie from '@hapi/cookie';
 import Pino from 'hapi-pino';
+import Schmervice from 'schmervice';
 
 import HealthCheck from './plugins/health-check';
 
@@ -26,6 +28,8 @@ const init = async (start) => {
                 prettyPrint: process.env.NODE_ENV !== 'production',
             },
         },
+        Cookie,
+        Schmervice,
         HealthCheck,
         Routes,
     ]);
