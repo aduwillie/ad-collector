@@ -6,7 +6,7 @@ export default [
         path: '/',
         options: {
             auth: false,
-            handler: (_, h) => h.view('login')
+            handler: (_, h) => h.redirect('/login')
         },
     },
     {
