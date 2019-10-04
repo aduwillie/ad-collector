@@ -6,17 +6,41 @@ export default [
         path: '/',
         options: {
             auth: false,
-            handler: (_, h) => h.view('index')
+            handler: (_, h) => h.redirect('/login')
         },
     },
     {
         method: 'GET',
-        path: '/assets/{path*}',
+        path: '/login',
+        options: {
+            auth: false,
+            handler: (_, h) => h.view('login')
+        },
+    },
+    {
+        method: 'GET',
+        path: '/register',
+        options: {
+            auth: false,
+            handler: (_, h) => h.view('register')
+        },
+    },
+    {
+        method: 'GET',
+        path: '/dashboard',
+        options: {
+            auth: false,
+            handler: (_, h) => h.view('dashboard/index')
+        },
+    },
+    {
+        method: 'GET',
+        path: '/{path*}',
         options: {
             auth: false,
             handler: {
                 directory: {
-                    path: Path.resolve(__dirname, '../public'),
+                    path: Path.resolve(__dirname, '../../../public'),
                     listing: false,
                     index: false,
                 },

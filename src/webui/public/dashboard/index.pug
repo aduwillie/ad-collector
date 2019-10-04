@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="css/bootstrap.min.css")
+        link(rel="stylesheet", href="css/components.css")
+        link(rel="stylesheet", href="css/layout.min.css")
+        link(rel="stylesheet", href="css/darkblue.min.css")
+        link(rel="stylesheet", href="css/font-awesome.min.css")
+        link(rel="stylesheet", href="css/simple-line-icons.min.css")
+        title Dashboard
+    body(class="page-header-fixed page-sidebar-closed-hide-logo page-content-white")
+        div(class="page-wrapper")
+            div(class="page-header navbar navbar-fixed-top")
+                div(class="page-header-inner")
+                    div(class="page-logo")
+                        a(class="")
+                            img(src="", alt="logo")
+                        div(class="menu-toggler sidebar-toggler")
+                            span
+                    a(href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse")
+                        span
+                    div(class="top-menu")
+                        ul(class="nav navbar-nav pull-right")
+                            li(class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar")
+                                a(href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true")
+                                    i(class="icon-bell")
+                                    span(class="badge badge-default") 7
+            div(class="clearfix")
+            div(class="page-container")
+                div(class="page-sidebar-wrapper")
+                    div(class="page-sidebar navbar-collapse collapse")
+                        ul(class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px")
+                            li(class="sidebar-toggler-wrapper hide")
+                                div(class="sidebar-toggler")
+                                    span
+                            //- side navigation starts here
+                            li(class="nav-item start ")
+                                a(href="#" class="nav-link")
+                                    i(class="icon-home")
+                                    span(class="title") Dashboard
+                                    span(class="arrow")
+
+                //- main content starts here
+                div(class="page-content-wrapper")
+                    div(class="page-content")
+                        h1(class="page-title") Blank Page Layout
+                            small blank page layout
+
+                        //- display some content below
+
+            //- footer content displays here
+            div(class="page-footer")
+                div(class="page-footer-inner")
+                    span Ad collector 2019

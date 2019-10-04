@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="stylesheet", href="css/bootstrap.min.css")
+        link(rel="stylesheet", href="css/login.css")
+        link(rel="stylesheet", href="css/components.css")
+        title Login
+    body(class="login")
+        div(class="content")
+            form(action="#", method="post")
+                div(class="form-title")
+                    span(class="form-title") Welcome
+                    span(class="form-subtitle") Please login.
+
+                div(class="form-group")
+                    label(class="control-label visible-ie8 visible-ie9") Username
+                    input(type="email", name="email",class="form-control form-control-solid placeholder-no-fix", placeholder="email")
+
+                div(class="form-group")
+                    label(class="control-label visible-ie8 visible-ie9") Password
+                    input(type="password", name="password",class="form-control form-control-solid placeholder-no-fix", placeholder="password")
+                
+                div(class="form-actions")
+                    button(type="submit", class="btn red btn-block uppercase") Login
+
+                div(class="form-actions")
+                    div(class="pull-right forget-password-block")
+                        a(class="forget-password") Forgot Password?

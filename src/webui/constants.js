@@ -14,4 +14,7 @@ ROLE_FIELDS.forEach((role) => {
     ROLES[role].ALL = `${role.toLowerCase()}:*`;
 });
 
-export default ROLES;
+export default {
+    ROLES,
+    DEFAULT_SECRET: 'fake_password',
+};

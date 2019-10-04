@@ -24,8 +24,8 @@ steps:
   displayName: 'Install and Test'
 
 - script: |
-    docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):$(Build.BuildId) $(Build.SourcesDirectory)
-    docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):latest $(Build.SourcesDirectory)
+    docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):$(Build.BuildId) --build-arg COOKIE_SECRET=${cookieSecret} $(Build.SourcesDirectory)
+    docker build -f ./src/webui/Dockerfile -t $(dockerId)/$(imageName):latest --build-arg COOKIE_SECRET=${cookieSecret} $(Build.SourcesDirectory)
     docker login -u $(dockerId) -p $(dockerPassword)
     docker push $(dockerId)/$(imageName):latest
     docker push $(dockerId)/$(imageName):$(Build.BuildId)
