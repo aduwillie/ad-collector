@@ -6,7 +6,7 @@ export default [
         path: '/',
         options: {
             auth: false,
-            handler: (_, h) => h.view('index')
+            handler: (_, h) => h.view('login')
         },
     },
     {
@@ -35,12 +35,12 @@ export default [
     },
     {
         method: 'GET',
-        path: '/assets/{path*}',
+        path: '/{path*}',
         options: {
             auth: false,
             handler: {
                 directory: {
-                    path: Path.resolve(__dirname, '../public'),
+                    path: Path.resolve(__dirname, '../../../public'),
                     listing: false,
                     index: false,
                 },
