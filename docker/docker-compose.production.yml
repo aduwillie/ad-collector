@@ -2,6 +2,9 @@ version: '3.7'
 services:
   webui:
     image: aduwillie/ad-collector-webui:latest
+    environment:
+      - COOKIE_SECRET
+      - JWT_SECRET
     deploy:
       replicas: ${WEBUI_REPLICAS:-1}
       labels:
