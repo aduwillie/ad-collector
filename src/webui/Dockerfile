@@ -1,6 +1,6 @@
 FROM node:dubnium
 WORKDIR /usr/src/app
-COPY ./package.json ./.babelrc ./webpack.config.js ./
+COPY ./package.json ./.babelrc ./webpack.config.js ./jest.init.js ./
 RUN npm i
 COPY src/webui/ ./
 EXPOSE 80
