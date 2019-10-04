@@ -1,3 +1,5 @@
+import CONSTANTS from '../../constants';
+
 const validate = async (decoded, request) => {
     const { userService } = request.services();
     
@@ -15,7 +17,7 @@ export default [
     'jwt',
     'jwt',
     {
-        key: process.env.JWT_SECRET, 
+        key: process.env.JWT_SECRET || CONSTANTS.DEFAULT_SECRET, 
         validate,
         verifyOptions: {
             algorithms: [ 'HS256' ],

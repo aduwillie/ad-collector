@@ -1,3 +1,5 @@
+import CONSTANTS from '../../constants';
+
 const validateFunc = async (request, session) => {
     const { userService } = request.services();
     
@@ -17,7 +19,7 @@ export default [
     {
         cookie: {
             name: 'sid',
-            password: process.env.COOKIE_SECRET,
+            password: process.env.COOKIE_SECRET || CONSTANTS.DEFAULT_SECRET,
             isSecure: false,
         },
         redirectTo: '/login',

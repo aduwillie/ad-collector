@@ -10,7 +10,7 @@
     "start": "docker-compose up -d webui",
     "start:webui": "./node_modules/.bin/babel-node src/webui/index.js",
     "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'npm run start:webui'",
-    "test": "docker-compose exec webui npm run test:webui",
+    "test": "npm run test:webui",
     "test:webui": "./node_modules/.bin/jest",
     "build": "webpack --mode=production"
   },
