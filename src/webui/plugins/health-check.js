@@ -1,4 +1,5 @@
 import HapiAlive from 'hapi-alive';
+import Boom from '@hapi/boom';
 
 const HealthCheckPlugin = {
     name: 'health-check',
@@ -11,13 +12,20 @@ const HealthCheckPlugin = {
                 tags: ['health', 'monitor'],
                 responses: {
                     healthy: {
-                        message: 'System is healthy!',
+                        message: JSON.stringify({
+                            app: 1,
+                            db: 1,
+                        }),
                     },
                     unhealthy: {
                         statusCode: 400,
                     },
                 },
-                healthCheck: async () => Promise.resolve(true), // recieves server
+                healthCheck: async (server) => {
+                    const { isConnected } = server.app.Database;
+                    if (!isConnected) throw Boom.badRequest('DB not connected');
+                    return true;
+                },
             },
         });
     }
