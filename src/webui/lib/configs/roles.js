@@ -1,6 +1,6 @@
-import ROLES from '../../constants';
+import CONSTANTS from '../../constants';
 
-const { PROJECT, FORM } = ROLES;
+const { PROJECT, FORM, DELETE_BEFORE_PUBLISH } = CONSTANTS.ROLES;
 
 export default {
     guest: {
@@ -14,7 +14,7 @@ export default {
             FORM.READ,
             FORM.UPDATE,
             {
-                name: ROLES.DELETE_BEFORE_PUBLISH,
+                name: DELETE_BEFORE_PUBLISH,
                 when: ({ user, obj }) => user.id === obj.lastModifiedBy,
             },
         ],
