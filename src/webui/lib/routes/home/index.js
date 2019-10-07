@@ -6,7 +6,7 @@ export default [
         path: '/',
         options: {
             auth: false,
-            handler: (_, h) => h.redirect('/login')
+            handler: async (_, h) => h.redirect('/login')
         },
     },
     {
@@ -14,7 +14,7 @@ export default [
         path: '/login',
         options: {
             auth: false,
-            handler: (_, h) => h.view('login')
+            handler: async (_, h) => h.view('login')
         },
     },
     {
@@ -22,7 +22,7 @@ export default [
         path: '/register',
         options: {
             auth: false,
-            handler: (_, h) => h.view('register')
+            handler: async (_, h) => h.view('register')
         },
     },
     {
@@ -30,7 +30,7 @@ export default [
         path: '/dashboard',
         options: {
             auth: false,
-            handler: (_, h) => h.view('dashboard/index')
+            handler: async (_, h) => h.view('dashboard/index')
         },
     },
     {
