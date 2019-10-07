@@ -7,6 +7,7 @@ import Schmervice from 'schmervice';
 import JWTScheme from 'hapi-auth-jwt2';
 
 import HealthCheck from './plugins/health-check';
+import AppModel from './plugins/app-model';
 
 import Routes from './lib';
 
@@ -33,6 +34,7 @@ const init = async (start) => {
         JWTScheme,
         Schmervice,
         HealthCheck,
+        AppModel,
         Routes,
     ]);
 

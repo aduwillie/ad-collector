@@ -15,6 +15,11 @@ ROLE_FIELDS.forEach((role) => {
 });
 
 export default {
-    ROLES,
     DEFAULT_SECRET: 'fake_password',
+    EMAIL_REGEX: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+    ROLES,
+    LOGS: {
+        MONGO_LOG: 'mongo:log',
+        MONGO_ERROR: 'mongo:error',
+    },
 };
