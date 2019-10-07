@@ -1,8 +1,8 @@
 import Mongoose from 'mongoose';
 
 import BaseSchema from './base';
-import RoleSchema from './role';
 import CONSTANTS from '../constants';
+import Roles from '../lib/configs/roles';
 
 const schema = new Mongoose.Schema({
     firstName: {
@@ -25,14 +25,23 @@ const schema = new Mongoose.Schema({
         lowercase: true,
         validate: {
             validator: (value) => CONSTANTS.EMAIL_REGEX.test(value),
-            message: props => `${props.value} is not a valid email`,
+            message: ({ value }) => `${value} is not a valid email`,
         },
     },
     password: {
         required: [true, 'Password is required'],
         type: Mongoose.SchemaTypes.String,
     },
-    roles: [RoleSchema],
+    roles: [{
+        name: {
+            required: [true, 'Role is required'],
+            type: Mongoose.SchemaTypes.String,
+            validate: {
+                validator: value => Object.keys(Roles).includes(value),
+                message: ({ value }) => `${value} is not a valid role`,
+            }
+        }
+    }],
 });
 schema.add(BaseSchema);
 
