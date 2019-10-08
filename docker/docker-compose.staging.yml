@@ -5,6 +5,7 @@ services:
     environment:
       - COOKIE_SECRET
       - JWT_SECRET
+      - MONGO_URL
     deploy:
       replicas: ${WEBUI_REPLICAS:-1}
       labels:

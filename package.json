@@ -11,7 +11,9 @@
     "start:webui": "./node_modules/.bin/babel-node src/webui/index.js",
     "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'npm run start:webui'",
     "test": "npm run test:webui",
-    "test:webui": "NODE_ENV=test ./node_modules/.bin/jest --watch",
+    "test:watch": "npm run test:webui:watch",
+    "test:webui": "NODE_ENV=test ./node_modules/.bin/jest",
+    "test:webui:watch": "NODE_ENV=test ./node_modules/.bin/jest",
     "build": "webpack --mode=production"
   },
   "repository": {
