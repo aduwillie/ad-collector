@@ -2,7 +2,6 @@ import Vision from '@hapi/vision';
 import Pug from 'pug';
 
 import Routes from './routes';
-import Services from './services';
 import Strategies from './strategies';
 
 const RoutesPlugin = {
@@ -19,16 +18,11 @@ const RoutesPlugin = {
             path: '../public',
         });
 
-        // register services
-        Services.forEach((service) => {
-            server.registerService(service);
-        });
-
         // register strategies
         Strategies.forEach((strategy) => {
             server.auth.strategy(...strategy);
         });
-        server.auth.default('session');
+        server.auth.default('jwt');
 
         // register routes
         server.route([...Routes]);

@@ -2,8 +2,8 @@ import Models from '../models';
 import AppConfig from '../config';
 import Constants from '../constants';
 
-const AppModelPlugin = {
-    name: 'app-model',
+const AppModelsPlugin = {
+    name: 'app-models',
     version: '1.0.0',
     register: async (server) => {
         if (AppConfig.useMongo) {
@@ -26,4 +26,4 @@ const AppModelPlugin = {
     },
 };
 
-export default AppModelPlugin;
+export default AppModelsPlugin;

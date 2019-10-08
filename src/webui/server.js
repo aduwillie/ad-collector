@@ -3,11 +3,11 @@ import Hapi from '@hapi/hapi';
 import Inert from '@hapi/inert';
 import Cookie from '@hapi/cookie';
 import Pino from 'hapi-pino';
-import Schmervice from 'schmervice';
 import JWTScheme from 'hapi-auth-jwt2';
 
 import HealthCheck from './plugins/health-check';
-import AppModel from './plugins/app-model';
+import AppModels from './plugins/app-models';
+import AppServices from './plugins/app-services';
 
 import Routes from './lib';
 
@@ -30,11 +30,11 @@ const init = async (start) => {
                 prettyPrint: process.env.NODE_ENV !== 'production',
             },
         },
+        AppModels,
+        AppServices,
         Cookie,
         JWTScheme,
-        Schmervice,
         HealthCheck,
-        AppModel,
         Routes,
     ]);
 

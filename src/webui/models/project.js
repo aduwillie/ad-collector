@@ -7,8 +7,25 @@ const schema = new Mongoose.Schema({
         required: [true, 'Project name is required'],
         type: Mongoose.SchemaTypes.String,
         minlength: 2,
-        unique: true,
     },
+    users: [
+        {
+            name: {
+                required: true,
+                type: Mongoose.SchemaTypes.String,
+                minlength: 2,
+            },
+            role: {
+                required: true,
+                type: Mongoose.SchemaTypes.String,
+                minlength: 2,
+            },
+            uuid: {
+                required: true,
+                type: Mongoose.SchemaTypes.String,
+            }
+        },
+    ],
 });
 schema.add(BaseSchema);
 

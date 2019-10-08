@@ -1,7 +1,7 @@
 import Mongoose from 'mongoose';
 import Uuid from 'uuid';
 
-export default new Mongoose.Schema({
+const schema = new Mongoose.Schema({
     uuid: {
         required: true,
         type: Mongoose.SchemaTypes.String,
@@ -26,3 +26,5 @@ export default new Mongoose.Schema({
         type: Mongoose.SchemaTypes.String,
     },
 });
+
+export default schema;
