@@ -14,14 +14,14 @@ export default [
     },
     {
         method: 'GET',
-        path: '/form/{id}',
+        path: '/form/{formId}',
         options: {
             validate: {
-                params: {
-                    id: Joi.string()
+                params: Joi.object({
+                    formId: Joi.string()
                         .description('Id of form')
                         .required(),
-                },
+                }),
             },
             handler: async (request) => {
                 const { Form } = request.server.app.Database;
@@ -34,11 +34,11 @@ export default [
         path: '/form',
         options: {
             validate: {
-                payload: {
+                payload: Joi.object({
                     name: Joi.string()
                         .description('Project name')
                         .required(),
-                },
+                }),
             },
             handler: async (request) => {
                 const { name } = request.payload;

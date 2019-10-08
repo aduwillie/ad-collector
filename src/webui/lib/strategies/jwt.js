@@ -2,11 +2,10 @@ import CONSTANTS from '../../constants';
 
 const validate = async (decoded, request) => {
     const { userService } = request.services();
-    
     const user = await userService.find(decoded.sub);
-    if (!user) return { valid: false };
+    if (!user) return { isValid: false };
     return {
-        valid: true,
+        isValid: true,
         credentials: {
             user,
         },
