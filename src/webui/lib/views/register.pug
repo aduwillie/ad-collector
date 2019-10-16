@@ -1,0 +1,35 @@
+extends layout.pug
+
+block content
+    div(style='display:flex;align-items:center;justify-content:center;')
+        .col-md-6.col-md-offset-3
+            .card
+                .card-header.card-header-text.card-header-primary
+                    .card-text
+                        h4.card-title Create an account with us
+                .card-body
+                    form(method='POST')
+                        .form-group
+                            label(for='email') First name *
+                            input#email.form-control(type='text' aria-describedby='fnamehelp' placeholder='Enter first name', required)
+                            small#fnamehelp.form-text.text-muted Your legal first name.
+                        .form-group
+                            label(for='email') Last name *
+                            input#email.form-control(type='text' aria-describedby='lnamehelp' placeholder='Enter last name', required)
+                            small#lnamehelp.form-text.text-muted Your legal last name.
+                        .form-group
+                            label(for='email') Other names
+                            input#email.form-control(type='text' aria-describedby='lnamehelp' placeholder='Enter other names')
+                            small#lnamehelp.form-text.text-muted Do you have other names? Please share them
+                        .form-group
+                            label(for='email') Email address *
+                            input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email', required)
+                            small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+                        .form-group
+                            label(for='email') Password *
+                            input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter password')
+                            small#emailHelp.form-text.text-muted We'll never share your password with anyone else. It's a secret.
+                        .category.form-category * Required fields
+                        button.btn.btn-primary(type='submit') Submit
+                        span &nbsp;&nbsp;
+                        a(href='/login', style='margin-left: 0.5rem;') Login to your existing account

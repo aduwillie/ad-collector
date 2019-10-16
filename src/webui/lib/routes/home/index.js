@@ -1,12 +1,10 @@
-import Path from 'path';
-
 export default [
     {
         method: 'GET',
         path: '/',
         options: {
             auth: false,
-            handler: async (_, h) => h.redirect('/login')
+            handler: async (_, h) => h.redirect('/login'),
         },
     },
     {
@@ -14,7 +12,9 @@ export default [
         path: '/login',
         options: {
             auth: false,
-            handler: async (_, h) => h.view('login')
+            handler: async (_, h) => h.view('login', {
+                title: 'Login',
+            }),
         },
     },
     {
@@ -40,7 +40,7 @@ export default [
             auth: false,
             handler: {
                 directory: {
-                    path: Path.resolve(__dirname, '../../../public'),
+                    path: 'public',
                     listing: false,
                     index: false,
                 },

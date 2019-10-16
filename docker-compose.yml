@@ -10,7 +10,7 @@ services:
     environment:
       - COOKIE_SECRET=some_password_string_with_32_characters
       - JWT_SECRET=some_password_string_with_32_characters
-      - MONGO_URL=mongodb://mongo_user:mongo_pass@mongo_host:27017/mongo_database
+      - MONGO_URL=mongodb://admin:mongo_staging_fnetgh.com@ad-collector.apps.aduwillie.com:27017/adcollector
     volumes:
       - './src/webui/plugins:/usr/src/app/plugins'
       - './src/webui/public:/usr/src/app/public'

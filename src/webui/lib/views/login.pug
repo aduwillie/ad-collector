@@ -1,0 +1,22 @@
+extends layout.pug
+
+block content
+    div(style='display:flex;align-items:center;justify-content:center;')
+        .col-md-6.col-md-offset-3
+            .card
+                .card-header.card-header-text.card-header-primary
+                    .card-text
+                        h4.card-title Login to your account
+                .card-body
+                    form(method='POST')
+                        .form-group
+                            label(for='email') Email *
+                            input#email.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
+                            small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+                        .form-group
+                            label(for='password') Password *
+                            input#password.form-control(type='password' placeholder='Enter password')
+                        .category.form-category * Required fields
+                        button.btn.btn-primary(type='submit') Submit
+                        span &nbsp;&nbsp;
+                        a(href='/register', style='margin-left: 0.5rem;') Register an account with us

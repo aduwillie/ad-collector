@@ -17,7 +17,7 @@ const init = async (start) => {
         host: process.env.HOST || '0.0.0.0',
         routes: {
             files: {
-                relativeTo: Path.join(__dirname, 'public')
+                relativeTo: Path.join(__dirname)
             }
         }
     });

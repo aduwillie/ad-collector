@@ -1,5 +1,6 @@
 import Vision from '@hapi/vision';
 import Pug from 'pug';
+import Path from 'path';
 
 import Routes from './routes';
 import Strategies from './strategies';
@@ -15,7 +16,7 @@ const RoutesPlugin = {
                 pug: Pug
             },
             relativeTo: __dirname,
-            path: '../public',
+            path: Path.join(__dirname, 'views'),
         });
 
         // register strategies
