@@ -4,7 +4,7 @@ import Uuid from 'uuid';
 export default [
     {
         method: 'GET',
-        path: '/form',
+        path: '/api/v1/form',
         options: {
             handler: async (request) => {
                 const { Form } = request.server.app.Database;
@@ -14,7 +14,7 @@ export default [
     },
     {
         method: 'GET',
-        path: '/form/{formId}',
+        path: '/api/v1/form/{formId}',
         options: {
             validate: {
                 params: Joi.object({
@@ -31,7 +31,7 @@ export default [
     },
     {
         method: 'POST',
-        path: '/form',
+        path: '/api/v1/form',
         options: {
             validate: {
                 payload: Joi.object({

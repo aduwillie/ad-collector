@@ -1,0 +1,17 @@
+ul.nav
+    li(class="#{title !== 'Dashboard' ? 'nav-item' : 'nav-item active'}")
+        a.nav-link(href='/dashboard')
+            i.material-icons dashboard
+            p Dashboard
+    li(class="#{title !== 'Projects' ? 'nav-item' : 'nav-item active'}")
+        a.nav-link(href='/project')
+            i.material-icons content_paste
+            p Projects
+    li(class="#{title !== 'Forms' ? 'nav-item' : 'nav-item active'}")
+        a.nav-link(href='/form.html')
+            i.material-icons library_books
+            p Forms
+    li(class="#{title !== 'Users' ? 'nav-item' : 'nav-item active'}")
+        a.nav-link(href='/user.html')
+            i.material-icons person
+            p Users

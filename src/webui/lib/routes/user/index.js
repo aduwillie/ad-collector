@@ -46,7 +46,7 @@ export const getAuthUserDetails = async (request) => {
 export default [
     {
         method: 'POST',
-        path: '/users/register',
+        path: '/api/v1/users/register',
         options: {
             auth: false,
             validate: {
@@ -105,7 +105,7 @@ export default [
     },
     {
         method: 'POST',
-        path: '/users/login',
+        path: '/api/v1/users/login',
         options: {
             auth: false,
             validate: {

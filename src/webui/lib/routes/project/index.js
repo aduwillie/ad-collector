@@ -29,7 +29,7 @@ export const getAuthUserDetails = async (request) => {
 export default [
     {
         method: 'GET',
-        path: '/projects',
+        path: '/api/v1/projects',
         options: {
             pre: [{ assign: 'user', method: getAuthUserDetails }],
             handler: async (request) => {
@@ -40,7 +40,7 @@ export default [
     },
     {
         method: 'GET',
-        path: '/projects/{projectUuid}',
+        path: '/api/v1/projects/{projectUuid}',
         options: {
             validate: {
                 params: Joi.object({
@@ -61,7 +61,7 @@ export default [
     },
     {
         method: 'POST',
-        path: '/projects',
+        path: '/api/v1/projects',
         options: {
             validate: {
                 payload: Joi.object({

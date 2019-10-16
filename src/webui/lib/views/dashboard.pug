@@ -1,0 +1,110 @@
+extends layout.pug
+
+block content
+    .wrapper
+        .sidebar(data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg")
+            .logo
+                a.simple-text.logo-normal(href="/")
+                    | Data Collector
+            .sidebar-wrapper
+                include includes/side-nav.pug
+        .main-panel
+            include includes/navbar.pug
+            .content
+                .container-fluid
+                    .row
+                        .col-lg-3.col-md-6.col-sm-6
+                            .card.card-stats
+                                .card-header.card-header-info.card-header-icon
+                                    .card-icon
+                                        i.material-icons content_paste
+                                    p.card-category Projects
+                                    h3.card-title +14
+                                .card-footer
+                                    .stats
+                                        i.material-icons access_time
+                                        |  Last created 2 days ago
+                        .col-lg-3.col-md-6.col-sm-6
+                            .card.card-stats
+                                .card-header.card-header-info.card-header-icon
+                                    .card-icon
+                                        i.material-icons library_books
+                                    p.card-category Forms
+                                    h3.card-title +34
+                                .card-footer
+                                    .stats
+                                        i.material-icons access_time
+                                        |  Last created 2 days ago
+                        .col-lg-3.col-md-6.col-sm-6
+                            .card.card-stats
+                                .card-header.card-header-info.card-header-icon
+                                    .card-icon
+                                        i.material-icons person
+                                    p.card-category Users
+                                    h3.card-title +245
+                                .card-footer
+                                    .stats
+                                        i.material-icons access_time
+                                        |  Last created 2 days ago
+                        .col-lg-3.col-md-6.col-sm-6
+                            .card.card-stats
+                                .card-header.card-header-info.card-header-icon
+                                    .card-icon
+                                        i.material-icons notifications
+                                    p.card-category Notifications
+                                    h3.card-title +245
+                                .card-footer
+                                    .stats
+                                        i.material-icons access_time
+                                        |  Last created 2 days ago
+                    .row
+                        .col-lg-6.col-md-12
+                                .card
+                                    .card-header.card-header-primary
+                                        h4.card-title Projects
+                                        p.card-category Projects created in the last 6 months
+                                    .card-body.table-responsive
+                                        table.table.table-hover
+                                            thead.text-warning
+                                                th ID
+                                                th Name
+                                            tbody
+                                            tr
+                                                td 1
+                                                td Dakota Rice
+                                            tr
+                                                td 2
+                                                td Minerva Hooper
+                                            tr
+                                                td 3
+                                                td Sage Rodriguez
+                                            tr
+                                                td 4
+                                                td Philip Chaney
+                        .col-lg-6.col-md-12
+                            .card
+                                .card-header.card-header-warning
+                                    h4.card-title Forms
+                                    p.card-category Forms created in the last 6 months
+                                .card-body.table-responsive
+                                    table.table.table-hover
+                                        thead.text-warning
+                                            th ID
+                                            th Name
+                                        tbody
+                                        tr
+                                            td 1
+                                            td Dakota Rice
+                                        tr
+                                            td 2
+                                            td Minerva Hooper
+                                        tr
+                                            td 3
+                                            td Sage Rodriguez
+                                        tr
+                                            td 4
+                                            td Philip Chaney
+            footer.footer
+                .container-fluid
+                    .copyright.float-right
+                        | Copyright © #{new Date().getFullYear()}

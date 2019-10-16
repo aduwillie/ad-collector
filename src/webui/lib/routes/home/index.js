@@ -22,7 +22,9 @@ export default [
         path: '/register',
         options: {
             auth: false,
-            handler: async (_, h) => h.view('register')
+            handler: async (_, h) => h.view('register', {
+                title: 'Login',
+            }),
         },
     },
     {
@@ -30,7 +32,39 @@ export default [
         path: '/dashboard',
         options: {
             auth: false,
-            handler: async (_, h) => h.view('dashboard/index')
+            handler: async (_, h) => h.view('dashboard', {
+                title: 'Dashboard',
+            }),
+        },
+    },
+    {
+        method: 'GET',
+        path: '/projects',
+        options: {
+            auth: false,
+            handler: async (_, h) => h.view('project/index', {
+                title: 'Projects',
+            }),
+        },
+    },
+    {
+        method: 'GET',
+        path: '/forms',
+        options: {
+            auth: false,
+            handler: async (_, h) => h.view('form/index', {
+                title: 'Forms',
+            }),
+        },
+    },
+    {
+        method: 'GET',
+        path: '/users',
+        options: {
+            auth: false,
+            handler: async (_, h) => h.view('user/index', {
+                title: 'Users',
+            }),
         },
     },
     {
