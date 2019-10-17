@@ -6,7 +6,7 @@
   "scripts": {
     "build:scss": "./node_modules/.bin/gulp compile-scss",
     "build:scss:watch": "./node_modules/.bin/gulp watch",
-    "lint": "eslint src --fix",
+    "lint": "eslint src --fix --ignore-pattern '/src/webui/public/'",
     "logs:deployer": "docker-compose logs -f deployer",
     "logs:webui": "docker-compose logs -f webui",
     "start": "docker-compose up -d webui",
