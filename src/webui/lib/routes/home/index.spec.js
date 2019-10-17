@@ -1,6 +1,4 @@
 /* global describe beforeAll afterAll afterEach it expect jest */
-import Path from 'path';
-
 import init from '../../../server';
 import Routes from './index';
 
@@ -68,15 +66,14 @@ describe('Home Route', () => {
         await route.options.handler({}, mockReponseToolkit);
         expect(mockReponseToolkit.view).toHaveBeenCalled();
         expect(mockReponseToolkit.view).toHaveBeenCalledTimes(1);
-        expect(mockReponseToolkit.view.mock.calls[0][0]).toEqual('dashboard/index');
+        expect(mockReponseToolkit.view.mock.calls[0][0]).toEqual('dashboard');
     });
 
     it('should GET /{path*} (other static assets) route', async () => {
         const route = Routes.find(r => r.path === '/{path*}');
         expect(route).toBeDefined();
         expect(route.options.auth).toEqual(false);
-        expect(route.options.handler.directory.path).toEqual(Path.resolve(__dirname, '../../../public'));
-        expect(route.options.handler.directory.path.includes('/public')).toBeTruthy();
+        expect(route.options.handler.directory.path).toEqual('public');
         expect(route.options.handler.directory.listing).toEqual(false);
         expect(route.options.handler.directory.index).toEqual(false);
     });
