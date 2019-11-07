@@ -12,7 +12,12 @@
     },
     "parserOptions": {
         "ecmaVersion": 2017,
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true,
+            "experimentalObjectRestSpread": true
+        }
     },
     "rules": {
         "indent": [
@@ -28,6 +33,13 @@
             "single"
         ],
         "semi": "error",
-        "no-unused-vars": "error"
-    }
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+    },
+    "plugins": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ]
 }

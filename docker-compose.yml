@@ -12,15 +12,15 @@ services:
       - JWT_SECRET=some_password_string_with_32_characters
       - MONGO_URL=mongodb://admin:mongo_staging_fnetgh.com@ad-collector.apps.aduwillie.com:27017/adcollector
     volumes:
-      - './src/webui/plugins:/usr/src/app/plugins'
-      - './src/webui/public:/usr/src/app/public'
-      - './src/webui/lib:/usr/src/app/lib'
-      - './src/webui/models:/usr/src/app/models'
-      - './src/webui/services:/usr/src/app/services'
-      - './src/webui/index.js:/usr/src/app/index.js'
-      - './src/webui/server.js:/usr/src/app/server.js'
-      - './src/webui/config.js:/usr/src/app/config.js'
-      - './src/webui/constants.js:/usr/src/app/constants.js'
+      - './src/webui/backend/plugins:/usr/src/app/plugins'
+      - './src/webui/backend/public:/usr/src/app/public'
+      - './src/webui/backend/lib:/usr/src/app/lib'
+      - './src/webui/backend/models:/usr/src/app/models'
+      - './src/webui/backend/services:/usr/src/app/services'
+      - './src/webui/backend/index.js:/usr/src/app/index.js'
+      - './src/webui/backend/server.js:/usr/src/app/server.js'
+      - './src/webui/backend/config.js:/usr/src/app/config.js'
+      - './src/webui/backend/constants.js:/usr/src/app/constants.js'
     networks:
       - colnet
 networks:

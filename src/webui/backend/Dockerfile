@@ -2,7 +2,7 @@ FROM node:dubnium
 WORKDIR /usr/src/app
 COPY ./package.json ./.babelrc ./webpack.config.js ./jest.init.js ./
 RUN npm i
-COPY src/webui/ ./
+COPY src/webui/backend ./
 EXPOSE 80
 ARG COOKIE_SECRET
 ENV PORT=80

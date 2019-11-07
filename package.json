@@ -4,19 +4,20 @@
   "description": "This is a data collection system for gathering and analysing all kinds of data.",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/.bin/webpack -p --config webpack.config.js",
+    "build:w": "./node_modules/.bin/webpack -p --config webpack.config.js --watch",
     "build:scss": "./node_modules/.bin/gulp compile-scss",
     "build:scss:watch": "./node_modules/.bin/gulp watch",
-    "lint": "eslint src --fix --ignore-pattern '/src/webui/public/'",
+    "lint": "eslint --fix --ignore-pattern '/src/webui/backend/public/' src/**/*.js src/**/*.jsx",
     "logs:deployer": "docker-compose logs -f deployer",
     "logs:webui": "docker-compose logs -f webui",
     "start": "docker-compose up -d webui",
-    "start:webui": "./node_modules/.bin/babel-node src/webui/index.js",
+    "start:webui": "./node_modules/.bin/babel-node src/webui/backend/index.js",
     "start:webui:dev": "./node_modules/.bin/nodemon --mode development --exec 'npm run start:webui'",
     "test": "npm run test:webui",
     "test:watch": "npm run test:webui:watch",
     "test:webui": "NODE_ENV=test ./node_modules/.bin/jest",
-    "test:webui:watch": "NODE_ENV=test ./node_modules/.bin/jest",
-    "build": "webpack --mode=production"
+    "test:webui:watch": "NODE_ENV=test ./node_modules/.bin/jest"
   },
   "repository": {
     "type": "git",
@@ -48,13 +49,17 @@
     "@hapi/joi": "^16.1.4",
     "@hapi/vision": "^5.5.4",
     "bcrypt": "^3.0.6",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "hapi-alive": "^2.0.4",
     "hapi-auth-jwt2": "^8.6.2",
     "hapi-pino": "^6.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.3",
     "pug": "^2.0.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
     "schmervice": "^1.2.0",
     "uuid": "^3.3.3"
   },
@@ -63,8 +68,13 @@
     "@babel/core": "^7.6.2",
     "@babel/node": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.7.0",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean": "^0.4.0",
@@ -78,7 +88,8 @@
     "regenerator-runtime": "^0.13.3",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-livereload-plugin": "^2.2.0"
   }
 }
