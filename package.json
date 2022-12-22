@@ -53,7 +53,7 @@
     "hapi-alive": "^2.0.4",
     "hapi-auth-jwt2": "^8.6.2",
     "hapi-pino": "^6.1.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.7.3",
     "pug": "^2.0.4",
     "react": "^16.11.0",
